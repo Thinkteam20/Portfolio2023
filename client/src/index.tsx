@@ -5,11 +5,12 @@ import App from "./App";
 import { createBrowserRouter, Router, RouterProvider } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
 import NotFound from "./pages/NotFound";
-import Home from "./pages/Home";
+import Home from "./pages/Home/Home";
 import AboutMe from "./pages/AboutMe";
 import Project from "./pages/Project";
 import Skill from "./pages/Skill";
 import TimeLine from "./pages/TimeLine";
+import Contact from "./pages/Contact";
 
 // {
 //   path: "/products/:id",
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
             {
                 path: "/Skill",
                 element: <Skill />,
+            },
+            {
+                path: "/contact",
+                element: <Contact />,
             },
             {
                 path: "/project",
