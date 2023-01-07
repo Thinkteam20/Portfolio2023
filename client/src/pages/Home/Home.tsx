@@ -1,11 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Home.module.css";
 import videoBg from "../../assets/typingbg2.mp4";
-import { Button } from "@mui/material";
+import { ThemeProvider, createTheme, Button } from "@mui/material";
 
 export default function Home() {
+    const [darkMode, setDarkMode] = useState(false);
+    const paletteType = darkMode ? "dark" : "light";
+    const theme = createTheme({
+        palette: {
+            mode: paletteType,
+            background: {
+                default: paletteType === "light" ? "#eaeaea" : "#121212",
+            },
+        },
+    });
     return (
-        <div className={styles.section}>
+        <ThemeProvider theme={theme}>
             <div className={styles.carousel}>
                 <video
                     src={videoBg}
@@ -29,13 +39,10 @@ export default function Home() {
                         </button>
                     </div>
                 </div>
-                <div></div>
-                <div></div>
+                {/* <div className={styles.clipBox}></div>
+                <div></div> */}
             </div>
-            <div>
-                <h1>test page 2</h1>
-            </div>
-        </div>
+        </ThemeProvider>
     );
 }
 

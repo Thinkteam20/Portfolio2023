@@ -1,4 +1,5 @@
 import React from "react";
+
 import {
     AppBar,
     Badge,
@@ -8,12 +9,29 @@ import {
     Switch,
     Toolbar,
     Typography,
+    makeStyles,
 } from "@mui/material";
 import { Box } from "@mui/system";
 import { NavLink } from "react-router-dom";
 import Logo from "../assets/sp2.png";
+import DrawerComponent from "./Drawer";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+
+declare module "@mui/material/styles" {
+    interface BreakpointOverrides {
+        sm: 600;
+        md: 900;
+        lg: 1200;
+        xl: 1536;
+        mobile: true; // adds the `mobile` breakpoint
+        tablet: 640;
+        laptop: 1024;
+        desktop: 1200;
+    }
+}
 
 const midLinks = [
+    { title: "Home", path: "/" },
     { title: "AboutMe", path: "/aboutme" },
     { title: "Skill", path: "/skill" },
     { title: "TimeLine", path: "/timeline" },
@@ -27,10 +45,10 @@ const newStyles = {
     textDecoration: "none",
     typography: "h6",
     "&:hover": {
-        color: "grey.900",
+        color: "#2AABBB",
     },
     "&.active": {
-        color: "grey.900",
+        color: "#2AABBB",
     },
 };
 
@@ -45,6 +63,7 @@ export default function Navbar() {
                 justifyContent: "center",
                 // alignItems: "center",
                 background: "#fff",
+                maxWidth: "xl",
             }}
         >
             <Toolbar
@@ -77,7 +96,7 @@ export default function Navbar() {
                     <Switch />
                 </Box>
 
-                <List sx={{ display: "flex" }}>
+                <List sx={{ display: { md: "flex", sm: "none" } }}>
                     {midLinks.map(({ title, path }) => (
                         <ListItem
                             component={NavLink}
@@ -91,19 +110,9 @@ export default function Navbar() {
                 </List>
 
                 <Box display='flex' alignItems='center'>
-                    <List sx={{ display: "flex" }}>
-                        {rightLinks.map(({ title, path }) => (
-                            <ListItem
-                                component={NavLink}
-                                to={path}
-                                key={path}
-                                sx={newStyles}
-                            >
-                                {title.toUpperCase()}
-                            </ListItem>
-                        ))}
-                    </List>
+                    <LinkedInIcon sx={{ color: "black" }} />
                 </Box>
+                <DrawerComponent />
             </Toolbar>
         </AppBar>
     );
