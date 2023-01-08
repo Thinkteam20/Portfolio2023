@@ -16,9 +16,11 @@ import { NavLink } from "react-router-dom";
 import Logo from "../assets/sp2.png";
 import DrawerComponent from "./Drawer";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import EmailIcon from "@mui/icons-material/Email";
 
 declare module "@mui/material/styles" {
     interface BreakpointOverrides {
+        xs: 300;
         sm: 600;
         md: 900;
         lg: 1200;
@@ -43,7 +45,7 @@ const rightLinks = [{ title: "contact", path: "/contact" }];
 const newStyles = {
     color: "grey.900",
     textDecoration: "none",
-    typography: "h6",
+    typography: "h7",
     "&:hover": {
         color: "#2AABBB",
     },
@@ -96,7 +98,16 @@ export default function Navbar() {
                     <Switch />
                 </Box>
 
-                <List sx={{ display: { md: "flex", sm: "none" } }}>
+                <List
+                    sx={{
+                        display: {
+                            xs: "none",
+                            sm: "none",
+                            md: "flex",
+                            lg: "flex",
+                        },
+                    }}
+                >
                     {midLinks.map(({ title, path }) => (
                         <ListItem
                             component={NavLink}
@@ -110,7 +121,37 @@ export default function Navbar() {
                 </List>
 
                 <Box display='flex' alignItems='center'>
-                    <LinkedInIcon sx={{ color: "black" }} />
+                    <LinkedInIcon
+                        sx={{
+                            color: "black",
+                            cursor: "pointer",
+                            display: {
+                                xs: "none",
+                                sm: "none",
+                                md: "flex",
+                                lg: "flex",
+                            },
+                            "&:hover": {
+                                color: "#2AABBB",
+                            },
+                        }}
+                    />
+                    <EmailIcon
+                        sx={{
+                            color: "black",
+                            cursor: "pointer",
+                            ml: "0.5em",
+                            display: {
+                                xs: "none",
+                                sm: "none",
+                                md: "flex",
+                                lg: "flex",
+                            },
+                            "&:hover": {
+                                color: "#2AABBB",
+                            },
+                        }}
+                    />
                 </Box>
                 <DrawerComponent />
             </Toolbar>
