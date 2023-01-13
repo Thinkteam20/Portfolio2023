@@ -3,20 +3,6 @@ import styles from "./Home.module.css";
 import videoBg from "../../assets/typingbg2.mp4";
 import { ThemeProvider, createTheme, Button } from "@mui/material";
 
-declare module "@mui/material/styles" {
-    interface BreakpointOverrides {
-        xs: 300;
-        sm: 600;
-        md: 900;
-        lg: 1200;
-        xl: 1536;
-        mobile: true; // adds the `mobile` breakpoint
-        tablet: 640;
-        laptop: 1024;
-        desktop: 1200;
-    }
-}
-
 export default function Home() {
     const [darkMode, setDarkMode] = useState(false);
     const paletteType = darkMode ? "dark" : "light";

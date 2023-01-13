@@ -12,19 +12,6 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import { Link } from "react-router-dom";
 
-declare module "@mui/material/styles" {
-    interface BreakpointOverrides {
-        sm: 600;
-        md: 900;
-        lg: 1200;
-        xl: 1536;
-        mobile: true; // adds the `mobile` breakpoint
-        tablet: 640;
-        laptop: 1024;
-        desktop: 1200;
-    }
-}
-
 export default function DrawerComponent() {
     const [openDrawer, setOpenDrawer] = useState(false);
     return (

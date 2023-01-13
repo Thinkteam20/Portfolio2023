@@ -18,20 +18,6 @@ import DrawerComponent from "./Drawer";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import EmailIcon from "@mui/icons-material/Email";
 
-declare module "@mui/material/styles" {
-    interface BreakpointOverrides {
-        xs: 300;
-        sm: 600;
-        md: 900;
-        lg: 1200;
-        xl: 1536;
-        mobile: true; // adds the `mobile` breakpoint
-        tablet: 640;
-        laptop: 1024;
-        desktop: 1200;
-    }
-}
-
 const midLinks = [
     { title: "Home", path: "/" },
     { title: "AboutMe", path: "/aboutme" },
@@ -39,8 +25,6 @@ const midLinks = [
     { title: "TimeLine", path: "/timeline" },
     { title: "Projects", path: "/project" },
 ];
-
-const rightLinks = [{ title: "contact", path: "/contact" }];
 
 const newStyles = {
     color: "grey.900",
@@ -59,13 +43,13 @@ export default function Navbar() {
         <AppBar
             position='static'
             sx={{
-                // mb: 4,
+                // mb: 2,
                 height: "50px",
                 display: "flex",
                 justifyContent: "center",
                 // alignItems: "center",
                 background: "#fff",
-                maxWidth: "xl",
+                // maxWidth: "xl",
             }}
         >
             <Toolbar
